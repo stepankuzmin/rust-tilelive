@@ -1,0 +1,12 @@
+[package]
+name = "tilelive-postgis"
+version = "0.1.0"
+authors = ["Stepan Kuzmin <to.stepan.kuzmin@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+postgres = "0.15"
+r2d2 = "0.8"
+r2d2_postgres = "0.14"
+tilelive = { path = '../tilelive' }
+url = "2.1.0"
