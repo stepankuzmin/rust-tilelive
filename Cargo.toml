@@ -2,5 +2,6 @@
 
 members = [
     "tilelive",
+    "tilelive-serve",
     "tilelive-postgis",
 ]

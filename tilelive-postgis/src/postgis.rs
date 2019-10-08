@@ -8,6 +8,7 @@ use url;
 
 use tilelive::source::Source;
 use tilelive::tile::Tile;
+use tilelive::tilejson::{TileJSON, TileJSONBuilder};
 
 pub type PostgresPool = Pool<PostgresConnectionManager>;
 
@@ -18,6 +19,7 @@ static DEFAULT_CLIP_GEOM: bool = true;
 #[derive(Clone, Debug)]
 pub struct PostGIS {
   pool: PostgresPool,
+  id: String,
   query: String,
 }
 
@@ -40,18 +42,29 @@ impl Source for PostGIS {
 
     let schema = params.get("schema").unwrap().to_string();
     let table = params.get("table").unwrap().to_string();
+    let id = format!("{}.{}", schema, table);
     let geometry_column = params.get("geometry_column").unwrap().to_string();
 
     let query = format!(
       include_str!("get_tile.sql"),
-      id = format!("{}.{}", schema, table),
+      id = id,
       geometry_column = geometry_column,
       extent = DEFAULT_EXTENT,
       buffer = DEFAULT_BUFFER,
       clip_geom = DEFAULT_CLIP_GEOM,
     );
 
-    Ok(PostGIS { pool, query })
+    Ok(PostGIS { pool, id, query })
+  }
+
+  fn info(&self) -> io::Result<TileJSON> {
+    let mut tilejson_builder = TileJSONBuilder::new();
+
+    tilejson_builder.scheme("tms");
+    tilejson_builder.name(&self.id);
+    tilejson_builder.tiles(vec![]);
+
+    Ok(tilejson_builder.finalize())
   }
 
   fn get_tile(&self, z: u8, x: u32, y: u32) -> io::Result<Tile> {
