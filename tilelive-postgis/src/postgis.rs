@@ -6,9 +6,9 @@ use r2d2::Pool;
 use r2d2_postgres::{PostgresConnectionManager, TlsMode};
 use url;
 
-use tilelive::source::Source;
-use tilelive::tile::Tile;
-use tilelive::tilejson::{TileJSON, TileJSONBuilder};
+use tilelive_core::source::Source;
+use tilelive_core::tile::Tile;
+use tilelive_core::tilejson::{TileJSON, TileJSONBuilder};
 
 pub type PostgresPool = Pool<PostgresConnectionManager>;
 
@@ -60,6 +60,7 @@ impl Source for PostGIS {
   fn info(&self) -> io::Result<TileJSON> {
     let mut tilejson_builder = TileJSONBuilder::new();
 
+    tilejson_builder.id(&self.id);
     tilejson_builder.scheme("tms");
     tilejson_builder.name(&self.id);
     tilejson_builder.tiles(vec![]);

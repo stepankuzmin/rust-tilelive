@@ -1,7 +1,8 @@
 [workspace]
 
 members = [
-    "tilelive",
-    "tilelive-serve",
+    "tilelive-core",
     "tilelive-postgis",
+    "tilelive-serve",
+    "tilelive",
 ]
