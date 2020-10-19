@@ -5,7 +5,7 @@ authors = ["Stepan Kuzmin <to.stepan.kuzmin@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-postgres = "0.15"
+postgres = "0.18"
 r2d2 = "0.8"
 r2d2_postgres = "0.14"
 tilelive-core = { path = '../tilelive-core' }
