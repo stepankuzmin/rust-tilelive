@@ -1511,9 +1511,9 @@ dependencies = [
 
 [[package]]
 name = "postgres"
-version = "0.18.0"
+version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3d3de8287369ca114420847126e56cc8342a006ede67e20de7502f8a4a7af18a"
+checksum = "b25d05de0900dc0254bbad5e4b36b0f750c23ff44fbfcca4c1b9071f7ec1c764"
 dependencies = [
  "bytes 0.5.6",
  "fallible-iterator 0.2.0",
@@ -2201,7 +2201,7 @@ dependencies = [
 name = "tilelive-postgis"
 version = "0.1.0"
 dependencies = [
- "postgres 0.18.0",
+ "postgres 0.18.1",
  "r2d2",
  "r2d2_postgres",
  "tilelive-core",
