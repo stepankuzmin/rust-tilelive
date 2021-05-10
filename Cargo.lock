@@ -272,7 +272,7 @@ dependencies = [
  "serde_json",
  "serde_urlencoded",
  "time",
- "url 2.1.1",
+ "url 2.2.2",
 ]
 
 [[package]]
@@ -784,6 +784,16 @@ name = "fnv"
 version = "1.0.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2fad85553e09a6f881f739c29f0b00b0f01357c743266d478b68951ce23285f3"
+
+[[package]]
+name = "form_urlencoded"
+version = "1.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5fc25a87fa4fd2094bffb06925852034d90a17f0d1e05197d4956d3555752191"
+dependencies = [
+ "matches",
+ "percent-encoding 2.1.0",
+]
 
 [[package]]
 name = "fuchsia-cprng"
@@ -1986,7 +1996,7 @@ dependencies = [
  "dtoa",
  "itoa",
  "serde",
- "url 2.1.1",
+ "url 2.2.2",
 ]
 
 [[package]]
@@ -2193,7 +2203,7 @@ version = "0.1.0"
 dependencies = [
  "tilelive-core",
  "tilelive-postgis",
- "url 2.1.1",
+ "url 2.2.2",
 ]
 
 [[package]]
@@ -2211,7 +2221,7 @@ dependencies = [
  "r2d2",
  "r2d2_postgres",
  "tilelive-core",
- "url 2.1.1",
+ "url 2.2.2",
 ]
 
 [[package]]
@@ -2533,10 +2543,11 @@ dependencies = [
 
 [[package]]
 name = "url"
-version = "2.1.1"
+version = "2.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "829d4a8476c35c9bf0bbce5a3b23f4106f79728039b726d292bb93bc106787cb"
+checksum = "a507c383b2d33b5fc35d1861e77e6b383d158b2da5e14fe51b83dfedf6fd578c"
 dependencies = [
+ "form_urlencoded",
  "idna 0.2.0",
  "matches",
  "percent-encoding 2.1.0",
